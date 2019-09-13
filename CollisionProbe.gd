@@ -16,8 +16,7 @@ func _ready():
 				
 			host.connect('body_entered', collision_manager, '_on_collision_enter', [host])
 			# connect('body_exited', collision_manager, '_on_collision_exit', [host])
-			host.connect('body_shape_entered', collision_manager, '_on_collision_enter', [host])
-			# connect('body_shape_exited', collision_manager, '_on_collision_exit', [host])
+			
 		elif host is Area2D:
 			print("I am an area, Getting ready for ", host.name)
 			host.connect("area_entered", collision_manager, "_on_collision_enter", [host])
