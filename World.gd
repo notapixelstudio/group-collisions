@@ -1,6 +1,5 @@
 extends Node2D
 
-	
 func _on_collision_enter(a, b):
 	print("Enter collision detected between ", a.name, " and ", b.name)
 	

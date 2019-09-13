@@ -1,3 +1,4 @@
+tool
 extends Node
 
 func have_tags(a, b, g1, g2) -> Array:
