@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
-[ext_resource path="res://CollisionProbe.gd" type="Script" id=3]
-[ext_resource path="res://tag.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Brick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/hero.png" type="Texture" id=3]
+[ext_resource path="res://CollisionProbe.gd" type="Script" id=4]
+[ext_resource path="res://tag.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Brick.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=2]
 bounce = 300.0
@@ -19,6 +20,7 @@ script = ExtResource( 1 )
 
 [node name="Hero" type="RigidBody2D" parent="."]
 position = Vector2( 400, 150 )
+mode = 2
 physics_material_override = SubResource( 2 )
 gravity_scale = 0.0
 linear_damp = 5.0
@@ -27,26 +29,29 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
 shape = SubResource( 1 )
 
-[node name="Probe" type="Node" parent="Hero"]
-script = ExtResource( 3 )
+[node name="Sprite" type="Sprite" parent="Hero"]
+texture = ExtResource( 3 )
 
-[node name="Tags" parent="Hero" instance=ExtResource( 4 )]
+[node name="Probe" type="Node" parent="Hero"]
+script = ExtResource( 4 )
+
+[node name="Tags" parent="Hero" instance=ExtResource( 5 )]
 
 [node name="breaker" type="Node" parent="Hero/Tags"]
 
-[node name="Brick" parent="." instance=ExtResource( 5 )]
+[node name="Brick" parent="." instance=ExtResource( 6 )]
 position = Vector2( 250, 500 )
 
-[node name="Tags" parent="Brick" instance=ExtResource( 4 )]
+[node name="Tags" parent="Brick" instance=ExtResource( 5 )]
 
 [node name="breakable" type="Node" parent="Brick/Tags"]
 
-[node name="Brick2" parent="." instance=ExtResource( 5 )]
+[node name="Brick2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 400, 500 )
 
-[node name="Brick3" parent="." instance=ExtResource( 5 )]
+[node name="Brick3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 550, 500 )
 
-[node name="Tags" parent="Brick3" instance=ExtResource( 4 )]
+[node name="Tags" parent="Brick3" instance=ExtResource( 5 )]
 
 [node name="breakable" type="Node" parent="Brick3/Tags"]
