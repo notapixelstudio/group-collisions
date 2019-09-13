@@ -15,9 +15,13 @@ func has_tag(what: Node, tag_name: String)-> bool:
 
 func add_tag(what: Node, tag_name: String)-> void:
 	what.add_to_group(tag_name)
+	if what.has_method('_on_tag_added'):
+		what._on_tag_added(tag_name)
 
 func remove_tag(what: Node, tag_name: String)-> bool:
 	if what.is_in_group(tag_name):
 		what.remove_from_group(tag_name)
+		if what.has_method('_on_tag_removed'):
+			what._on_tag_removed(tag_name)
 		return true
 	return false
