@@ -2,14 +2,14 @@ extends Node2D
 
 	
 func _on_collision_enter(a, b):
+	print("Enter collision detected between ", a.name, " and ", b.name)
+	
 	# breaker, breakable
-	print("collision detected from ", a.name)
-	var result = []
-	result = TAG.have_tags(a, b, "breaker", "breakable")
+	var result = TAG.have_tags(a, b, "breaker", "breakable")
 	if result:
-		on_breaker_breakable_collision(result[0], result[1])
+		print(result[0].name, " breaks ", result[1].name)
+		result[1].free()
 
-
-func on_breaker_breakable_collision(a, b):
-	print(a.name)
-	print(b.name)
+func _on_collision_exit(a, b):
+	print("Exit collision detected between ", a.name, " and ", b.name)
+	

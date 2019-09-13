@@ -7,7 +7,7 @@ func have_tags(a, b, g1, g2) -> Array:
 	if a.is_in_group(g1) and b.is_in_group(g2):
 		ret = [a, b]
 	elif a.is_in_group(g2) and b.is_in_group(g1):
-		ret= [b, a]
+		ret = [b, a]
 	return ret
 	
 func has_tag(what:Node, tag_name: String)-> bool:
