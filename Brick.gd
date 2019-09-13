@@ -11,3 +11,9 @@ func _on_tag_removed(tag):
 	if not (TAG.has_tag(self, 'breakable')):
 		$Sprite.texture = default_sprite
 		
+func toggle_breakable():
+	if TAG.has_tag(self, 'breakable'):
+		TAG.remove_tag(self, 'breakable')
+	else:
+		TAG.add_tag(self, 'breakable')
+		
