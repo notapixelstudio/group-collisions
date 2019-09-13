@@ -4,7 +4,7 @@
 [ext_resource path="res://Hero.gd" type="Script" id=2]
 [ext_resource path="res://assets/hero.png" type="Texture" id=3]
 [ext_resource path="res://CollisionProbe.gd" type="Script" id=4]
-[ext_resource path="res://tag.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TAG/tag.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Brick.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -76,5 +76,5 @@ position = Vector2( 550, 500 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Brick3"]
 autoplay = "toggle_breakable"
-playback_speed = 0.25
+playback_speed = 0.5
 anims/toggle_breakable = SubResource( 3 )

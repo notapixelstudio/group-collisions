@@ -17,11 +17,10 @@ _global_script_class_icons={
 
 config/name="Group Collisions"
 run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
-TAG="*res://TagManager.gd"
+TAG="*res://TAG/main.gd"
 
 [rendering]
 
