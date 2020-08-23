@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Hero",
+"language": "GDScript",
+"path": "res://Hero.gd"
+}, {
+"base": "Area2D",
+"class": "Mushroom",
+"language": "GDScript",
+"path": "res://Mushroom.gd"
+} ]
 _global_script_class_icons={
-
+"Hero": "",
+"Mushroom": ""
 }
 
 [application]

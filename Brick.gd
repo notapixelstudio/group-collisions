@@ -4,25 +4,26 @@ extends StaticBody2D
 var default_sprite = preload('res://assets/unbreakable.png')
 var breakable_sprite = preload('res://assets/breakable.png')
 
-func _on_tag_added(tag):
+func _ready():
 	refresh()
 	
-func _on_tag_removed(tag):
-	refresh()
+	# remove if you need _process outside the editor
+	set_process(Engine.editor_hint)
 	
-func _process(delta):
+func _process(_delta):
+	# auto refresh stuff while in editor
 	if Engine.editor_hint:
 		refresh()
 	
 func refresh():
-	if TAG.has_tag(self, 'breakable'):
+	if self.is_in_group('breakable'):
 		$Sprite.texture = breakable_sprite
 	else:
 		$Sprite.texture = default_sprite
 		
 func toggle_breakable():
-	if TAG.has_tag(self, 'breakable'):
-		TAG.remove_tag(self, 'breakable')
+	if self.is_in_group('breakable'):
+		self.remove_from_group('breakable')
 	else:
-		TAG.add_tag(self, 'breakable')
-		
+		self.add_to_group('breakable')
+	refresh()
